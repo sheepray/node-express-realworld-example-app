@@ -9,6 +9,8 @@ var fs = require('fs'),
     passport = require('passport'),
     errorhandler = require('errorhandler'),
     mongoose = require('mongoose');
+    require('./models/User');
+    require('./config/passport');
 
 var isProduction = process.env.NODE_ENV === 'production';
 
@@ -75,6 +77,6 @@ app.use(function(err, req, res, next) {
 });
 
 // finally, let's start our server...
-var server = app.listen( process.env.PORT || 3000, function(){
+var server = app.listen( process.env.PORT || 3001, function(){
   console.log('Listening on port ' + server.address().port);
 });
